@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Magic 8-Ball</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			text-align: center;
+            color: black;
+		}
+		.ball {
+			background-color: black;
+			border-radius: 50%;
+			height: 500px;
+			width: 500px;
+			margin: 0 auto;
+			position: relative;
+			padding: 20px;
+			color: white;
+		}
+		.ball:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: white;
+			border-radius: 50%;
+			height: 250px;
+			width: 250px;
+			z-index: 1;
+		}
+		.response {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 24px;
+			font-weight: bold;
+			text-align: center;
+			width: 150px;
+			height: 150px;
+			display: none;
+            /* color: black; */
+		}
+	</style>
+	<script>
+		function shake() {
+			var question = document.getElementById("question").value;
+			if (question === "") {
+				alert("Please enter a question!");
+				return;
+			}
+			var responses = [
+				"It is certain.", 
+				"It is decidedly so.", 
+				"Without a doubt.", 
+				"Yes – definitely.", 
+				"You may rely on it.", 
+				"As I see it, yes.", 
+				"Most likely.", 
+				"Outlook good.", 
+				"Yes.", 
+				"Signs point to yes.", 
+				"Reply hazy, try again.", 
+				"Ask again later.", 
+				"Better not tell you now.", 
+				"Cannot predict now.", 
+				"Concentrate and ask again.", 
+				"Don't count on it.", 
+				"Outlook not so good.", 
+				"My sources say no.", 
+				"Very doubtful."
+			];
+			var response = responses[Math.floor(Math.random() * responses.length)];
+			document.getElementById("response-text").innerHTML = response;
+			document.getElementById("response").style.display = "block";
+		}
+	</script>
+</head>
+<body>
+	<h1>Magic 8-Ball</h1>
+	<div class="ball" onclick="shake()">
+		<div class="response" id="response">
+			<p id="response-text"></p>
+		</div>
+	</div>
+	<p style="text-align:center;">Ask a question: <input type="text" id="question" name="question"></p>
+</body>
+</html>
