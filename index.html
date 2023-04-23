@@ -8,18 +8,16 @@
     </head>
     <body>
         <div class="large-container">
+            <img src="images/catlogo.png" id="logo">
             <div class="container">
-                <h1>Magic 8-Ball</h1>
+                <img onclick="shake()" id="eight-ball-image" src="images/8ball.png">
                 <div id="answer"></div>
-                <!-- <div id="answer"></div>
-                <button onclick="shake()">Shake</button> -->
             </div>
             <div class="question">
-
+                <input type="text" id="question-input" placeholder="Type your question here...">
             </div>
-            <div class="shake-button">
-                <!-- <div id="answer"></div> -->
-                <button onclick="shake()">Shake</button>
+            <div class="click-instruction">
+                <p>Click on the 8 ball to get your answer</p>
             </div>
         </div>
         <script src="js/script.js"></script>
