@@ -1,3 +1,7 @@
+* {
+  font-family: 'Work Sans', sans-serif;
+}
+
 body {
   background-image: url("/images/background.jpg");
   background-repeat: no-repeat;
@@ -36,12 +40,20 @@ h1 {
   align-items: center;
   justify-content: center;
   height: 75px;
-  width: 500px;
+  /*width: 500px; */
   /* background-color: wheat; Currently set to wheat so you can see where it is */
+
   border-color: black;
   border-width: 10px;
+  border-radius: 10px;
+  border-style: solid;
 }
 
+#question-input {
+  font-size: 2rem;
+}
+
+/*
 .shake-button {
   display: flex;
   flex-direction: column;
@@ -50,6 +62,7 @@ h1 {
   height: 10vh;
   width: 50vh;
 }
+*/
 
 .large-container {
   display: flex;
@@ -58,6 +71,7 @@ h1 {
   justify-content: center;
 }
 
+/*
 button {
   padding: 10px 20px;
   font-size: 1.2rem;
@@ -68,12 +82,14 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+*/
 
 #answer {
   font-size: 2rem;
-  margin-bottom: 70px;
+  margin-top: 200px;
   text-align: center;
   color: white;
+  position: absolute;
 }
 
 .h1 {
@@ -88,6 +104,7 @@ button {
 #eight-ball-image {
   height: 30rem;
   width: 30rem;
+  position: absolute;
 }
 
 .click-instruction {
