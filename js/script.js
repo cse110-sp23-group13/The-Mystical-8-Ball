@@ -20,11 +20,44 @@ const answers = [
     "Very doubtful",
     "My reply is no",
   ];
+
+const negativeAnswers = [
+    "No",
+    "My sources say no",
+    "Outlook not so good",
+    "Very doubtful",
+    "Don't count on it",
+    "Better not tell you now",
+    "Cannot predict now",
+    "Concentrate and ask again",
+    "Reply hazy, try again",
+    "Ask again later",
+    "I have a headache",
+    "It's hard to say",
+    "I don't know",
+    "I don't care",
+    "I don't want to know",
+    "It doesn't look good",
+    "It's a no",
+    "It's a negative",
+    "It's a no-go",
+    "It's a definite no",
+    "It's a hard no",
+  ];
   
-  function shake() {
-    const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
-    document.getElementById("answer").innerHTML = randomAnswer;
-    document.getElementById("question-input").value = "";
-    document.getElementById("question-input").placeholder = "Type your question here...";
+// Script for 'normal' 8-ball settings
+function shake() {
+  const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+  document.getElementById("answer").innerHTML = randomAnswer;
+  document.getElementById("question-input").value = "";
+  document.getElementById("question-input").placeholder = "Type your question here...";
+  document.getElementById("audio").play();
+}
+
+// 8-Ball generates a new answer when user presses 'Enter' in the question-input
+document.getElementById("question-input").addEventListener("keypress", function(event) {
+  if (event.key == "Enter") {
+    shake();
   }
+});
   
