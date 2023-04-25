@@ -24,5 +24,7 @@ const answers = [
   function shake() {
     const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
     document.getElementById("answer").innerHTML = randomAnswer;
+    document.getElementById("question-input").value = "";
+    document.getElementById("question-input").placeholder = "Type your question here...";
   }
   

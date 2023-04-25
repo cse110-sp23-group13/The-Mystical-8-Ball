@@ -3,23 +3,26 @@
     <head>
         <meta charset="UTF-8" />
         <title>Magic 8-Ball</title>
-        <link rel="icon" href="images/8ball.png" />
+        <link rel="icon" href="images/8ball.png"/>
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="large-container">
+            <a href="https://github.com/cse110-sp23-group13">
+                <img src="images/catlogo.png" id="logo" alt="The Black Cat Crew">
+            </a>
             <div class="container">
-                <h1>Magic 8-Ball</h1>
+                <img onclick="shake()" id="eight-ball-image" src="images/8ball.png" alt="8-Ball">
                 <div id="answer"></div>
-                <!-- <div id="answer"></div>
-                <button onclick="shake()">Shake</button> -->
             </div>
             <div class="question">
-
+                <input type="text" id="question-input" placeholder="Type your question here...">
             </div>
-            <div class="shake-button">
-                <!-- <div id="answer"></div> -->
-                <button onclick="shake()">Shake</button>
+            <div class="click-instruction">
+                <p>Click on the 8 ball to get your answer</p>
             </div>
         </div>
         <script src="js/script.js"></script>
