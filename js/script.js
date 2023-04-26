@@ -75,10 +75,7 @@ document.getElementById("question-input").addEventListener("keypress", function(
 function isValidQuestion(question) {
   //Check if the question ends with a question mark
   if (!question.endsWith("?")) {
-    return false;
-  }
-  //Check if the question is at least 10 characters long
-  if (question.length < 10) {
+    alert("Please end your question with a question mark.");
     return false;
   }
   return true;
