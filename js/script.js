@@ -66,8 +66,6 @@ document.getElementById("question-input").addEventListener("keypress", function(
   if (event.key == "Enter" && document.getElementById("question-input").value != "") {
     if (isValidQuestion(document.getElementById("question-input").value)) {
       shake();
-    } else {
-      alert("Please ask a valid question.");
     }
   }
 });
