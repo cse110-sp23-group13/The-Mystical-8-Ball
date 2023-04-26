@@ -141,6 +141,13 @@ function applyLanguagePreference(language) {
   /*Chinese start code*/
 
 if (language === "chinese") {
+  const questionInput = document.querySelector('#question-input');
+  questionInput.placeholder = '在此输入您的问题...';
+
+  const clickInstruction = document.querySelector('.click-instruction p');
+  clickInstruction.textContent = '按下回车键以查看您的答案。';
+
+
   const answerDiv = document.getElementById("answer");
   const settingsPopup = document.getElementById("settings-popup");
   
