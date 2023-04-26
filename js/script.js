@@ -91,6 +91,8 @@ const negativeAnswers_chinese = [
 "这是肯定不行的",
 "这绝对不行",
 ];
+
+
   
 // Script for 'normal' 8-ball settings
 function shake() {
@@ -135,6 +137,37 @@ document.getElementById("save-settings").addEventListener("click", function() {
 // Apply user's language preference to application interface
 function applyLanguagePreference(language) {
   // Code to change application interface language goes here
+
+  /*Chinese start code*/
+
+if (language === "chinese") {
+  const answerDiv = document.getElementById("answer");
+  const settingsPopup = document.getElementById("settings-popup");
+  
+  // Update answers to Chinese
+  answers.forEach((answer, i) => {
+    answers[i] = answers_chinese[i];
+  });
+  negativeAnswers.forEach((answer, i) => {
+    negativeAnswers[i] = negativeAnswers_chinese[i];
+  });
+  
+  // Update answer div text to Chinese
+  answerDiv.textContent = "按下回车键查看答案。";
+  
+  // Update settings popup text to Chinese
+  const chineseLabel = settingsPopup.querySelector("label[for='chinese']");
+  const englishLabel = settingsPopup.querySelector("label[for='english']");
+  chineseLabel.textContent = "中文";
+  englishLabel.textContent = "英文";
+  settingsPopup.querySelector("p").textContent = "选择语言：";
+  settingsPopup.querySelector("#save-settings").textContent = "保存";
 }
+
+/* Chinese end code*/
+  
+}
+
+
   
 
