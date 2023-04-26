@@ -1,3 +1,4 @@
+// Temporary container for answers
 const answers = [
     "It is certain",
     "Without a doubt",
@@ -20,7 +21,30 @@ const answers = [
     "Very doubtful",
     "My reply is no",
   ];
-
+// English answers
+const answers_english = [
+  "It is certain",
+  "Without a doubt",
+  "You may rely on it",
+  "Yes, definitely",
+  "It is decidedly so",
+  "As I see it, yes",
+  "Most likely",
+  "Yes",
+  "Outlook good",
+  "Signs point to yes",
+  "Reply hazy try again",
+  "Better not tell you now",
+  "Ask again later",
+  "Cannot predict now",
+  "Concentrate and ask again",
+  "Don't count on it",
+  "Outlook not so good",
+  "My sources say no",
+  "Very doubtful",
+  "My reply is no",
+];
+// Container for negative answers
 const negativeAnswers = [
     "No",
     "My sources say no",
@@ -44,6 +68,30 @@ const negativeAnswers = [
     "It's a definite no",
     "It's a hard no",
   ];
+
+const negativeAnswers_english = [
+  "No",
+  "My sources say no",
+  "Outlook not so good",
+  "Very doubtful",
+  "Don't count on it",
+  "Better not tell you now",
+  "Cannot predict now",
+  "Concentrate and ask again",
+  "Reply hazy, try again",
+  "Ask again later",
+  "I have a headache",
+  "It's hard to say",
+  "I don't know",
+  "I don't care",
+  "I don't want to know",
+  "It doesn't look good",
+  "It's a no",
+  "It's a negative",
+  "It's a no-go",
+  "It's a definite no",
+  "It's a hard no",
+];
 
 const answers_chinese = [
   "肯定的",
@@ -172,6 +220,37 @@ if (language === "chinese") {
 }
 
 /* Chinese end code*/
+
+if (language === "english") {
+  const questionInput = document.querySelector('#question-input');
+  questionInput.placeholder = 'Type your question here...';
+
+  const clickInstruction = document.querySelector('.click-instruction p');
+  clickInstruction.textContent = 'Hit enter to see your answer.';
+
+
+  const answerDiv = document.getElementById("answer");
+  const settingsPopup = document.getElementById("settings-popup");
+  
+  // Update answers to English
+  answers.forEach((answer, i) => {
+    answers[i] = answers_english[i];
+  });
+  negativeAnswers.forEach((answer, i) => {
+    negativeAnswers[i] = negativeAnswers_english[i];
+  });
+  
+  // Update answer div text to English
+  answerDiv.textContent = "";
+  
+  // Update settings popup text to English
+  const chineseLabel = settingsPopup.querySelector("label[for='chinese']");
+  const englishLabel = settingsPopup.querySelector("label[for='english']");
+  chineseLabel.textContent = "Chinese";
+  englishLabel.textContent = "English";
+  settingsPopup.querySelector("p").textContent = "Select Language：";
+  settingsPopup.querySelector("#save-settings").textContent = "Save";
+}
   
 }
 
