@@ -44,6 +44,55 @@ const negativeAnswers = [
     "It's a definite no",
     "It's a hard no",
   ];
+
+const answers_chinese = [
+  "肯定的",
+  "毫无疑问",
+  "你可以依靠它",
+  "是的，绝对的",
+  "它肯定如此",
+  "在我看来，是的",
+  "很可能",
+  "是的",
+  "前途光明",
+  "迹象表明是的",
+  "回答模糊，请再试一次",
+  "最好现在不要告诉你",
+  "请稍后再问",
+  "现在无法预测",
+  "集中注意力再问一遍",
+  "不要指望",
+  "前景不太好",
+  "我的消息来源说不",
+  "非常怀疑",
+  "我的回答是否定的",
+  ];
+  
+const negativeAnswers_chinese = [
+"不",
+"我的消息来源说不",
+"前景不太好",
+"非常怀疑",
+"不要指望",
+"最好现在不要告诉你",
+"现在无法预测",
+"集中注意力再问一遍",
+"回答模糊，请再试一次",
+"请稍后再问",
+"我头疼",
+"很难说",
+"我不知道",
+"我不在意",
+"我不想知道",
+"看起来不妙",
+"它是否定的",
+"这是否定的",
+"这是不行的",
+"这是肯定不行的",
+"这绝对不行",
+];
+
+
   
 // Script for 'normal' 8-ball settings
 function shake() {
@@ -67,5 +116,65 @@ document.getElementById("question-input").addEventListener("keypress", function(
     shake();
   }
 });
+
+
+// Open settings pop-up when settings button is clicked
+document.getElementById("settings-btn").addEventListener("click", function() {
+  document.getElementById("settings-popup").style.display = "block";
+});
+
+// Save language preference when "Save" button is clicked
+document.getElementById("save-settings").addEventListener("click", function() {
+  var selectedLanguage = document.querySelector('input[name="language"]:checked').value;
+  // Save selected language to local storage
+  localStorage.setItem("language", selectedLanguage);
+  // Apply selected language to application interface
+  applyLanguagePreference(selectedLanguage);
+  // Close settings pop-up
+  document.getElementById("settings-popup").style.display = "none";
+});
+
+// Apply user's language preference to application interface
+function applyLanguagePreference(language) {
+  // Code to change application interface language goes here
+
+  /*Chinese start code*/
+
+if (language === "chinese") {
+  const questionInput = document.querySelector('#question-input');
+  questionInput.placeholder = '在此输入您的问题...';
+
+  const clickInstruction = document.querySelector('.click-instruction p');
+  clickInstruction.textContent = '按下回车键以查看您的答案。';
+
+
+  const answerDiv = document.getElementById("answer");
+  const settingsPopup = document.getElementById("settings-popup");
+  
+  // Update answers to Chinese
+  answers.forEach((answer, i) => {
+    answers[i] = answers_chinese[i];
+  });
+  negativeAnswers.forEach((answer, i) => {
+    negativeAnswers[i] = negativeAnswers_chinese[i];
+  });
+  
+  // Update answer div text to Chinese
+  answerDiv.textContent = "按下回车键查看答案。";
+  
+  // Update settings popup text to Chinese
+  const chineseLabel = settingsPopup.querySelector("label[for='chinese']");
+  const englishLabel = settingsPopup.querySelector("label[for='english']");
+  chineseLabel.textContent = "中文";
+  englishLabel.textContent = "英文";
+  settingsPopup.querySelector("p").textContent = "选择语言：";
+  settingsPopup.querySelector("#save-settings").textContent = "保存";
+}
+
+/* Chinese end code*/
+  
+}
+
+
   
 
