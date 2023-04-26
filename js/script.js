@@ -64,8 +64,24 @@ function shake() {
 // 8-Ball generates a new answer when user presses 'Enter' in the question-input
 document.getElementById("question-input").addEventListener("keypress", function(event) {
   if (event.key == "Enter" && document.getElementById("question-input").value != "") {
-    shake();
+    if (isValidQuestion(document.getElementById("question-input").value)) {
+      shake();
+    } else {
+      alert("Please ask a valid question.");
+    }
   }
 });
+
+function isValidQuestion(question) {
+  //Check if the question ends with a question mark
+  if (!question.endsWith("?")) {
+    return false;
+  }
+  //Check if the question is at least 10 characters long
+  if (question.length < 10) {
+    return false;
+  }
+  return true;
+}
   
 
