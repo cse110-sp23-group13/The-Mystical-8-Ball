@@ -67,5 +67,27 @@ document.getElementById("question-input").addEventListener("keypress", function(
     shake();
   }
 });
+
+
+// Open settings pop-up when settings button is clicked
+document.getElementById("settings-btn").addEventListener("click", function() {
+  document.getElementById("settings-popup").style.display = "block";
+});
+
+// Save language preference when "Save" button is clicked
+document.getElementById("save-settings").addEventListener("click", function() {
+  var selectedLanguage = document.querySelector('input[name="language"]:checked').value;
+  // Save selected language to local storage
+  localStorage.setItem("language", selectedLanguage);
+  // Apply selected language to application interface
+  applyLanguagePreference(selectedLanguage);
+  // Close settings pop-up
+  document.getElementById("settings-popup").style.display = "none";
+});
+
+// Apply user's language preference to application interface
+function applyLanguagePreference(language) {
+  // Code to change application interface language goes here
+}
   
 
