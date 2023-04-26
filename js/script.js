@@ -47,6 +47,13 @@ const negativeAnswers = [
   
 // Script for 'normal' 8-ball settings
 function shake() {
+  const eightBall = document.getElementById("eight-ball-image");
+  eightBall.classList.add("shake");
+
+  // wait for the animation to end, then remove the class
+  setTimeout(() => eightBall.classList.remove("shake"), 1000);
+
+  // add the code for generating an answer here
   const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
   document.getElementById("answer").innerHTML = randomAnswer;
   document.getElementById("question-input").value = "";
@@ -61,3 +68,4 @@ document.getElementById("question-input").addEventListener("keypress", function(
   }
 });
   
+
