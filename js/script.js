@@ -154,7 +154,6 @@ function shake() {
   const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
   document.getElementById("answer").innerHTML = randomAnswer;
   document.getElementById("question-input").value = "";
-  document.getElementById("question-input").placeholder = "Type your question here...";
   document.getElementById("audio").play();
 }
 
@@ -192,6 +191,7 @@ if (language === "chinese") {
   const questionInput = document.querySelector('#question-input');
   questionInput.placeholder = '在此输入您的问题...';
 
+
   const clickInstruction = document.querySelector('.click-instruction p');
   clickInstruction.textContent = '按下回车键以查看您的答案。';
 
@@ -221,9 +221,10 @@ if (language === "chinese") {
 
 /* Chinese end code*/
 
-if (language === "english") {
+if(language === "english") {
   const questionInput = document.querySelector('#question-input');
   questionInput.placeholder = 'Type your question here...';
+
 
   const clickInstruction = document.querySelector('.click-instruction p');
   clickInstruction.textContent = 'Hit enter to see your answer.';
