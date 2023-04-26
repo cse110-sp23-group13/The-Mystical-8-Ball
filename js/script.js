@@ -56,7 +56,7 @@ function shake() {
 
 // 8-Ball generates a new answer when user presses 'Enter' in the question-input
 document.getElementById("question-input").addEventListener("keypress", function(event) {
-  if (event.key == "Enter") {
+  if (event.key == "Enter" && document.getElementById("question-input").value != "") {
     shake();
   }
 });
